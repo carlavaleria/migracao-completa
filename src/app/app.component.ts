@@ -1,5 +1,6 @@
+import { Message } from 'primeng/components/common/api';
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   metodoListar: any = [];
-  
+  msgs: Message[] = [];
     constructor(private http : HttpClient){ }
   
     
@@ -21,14 +22,28 @@ export class AppComponent {
           console.log("listou");
           console.log(data);
           //this.cursos = (data);
-          //alert("está listando correto");
+          this.listando();
+        },
+        (err: HttpErrorResponse) => {
+          if (err.error.message == undefined) {
+            this.erroListar();
+          }
         }
       );
-  
     }
   
     metodoAddListar(curso){
       this.metodoListar.push(curso);
       return this.ngOnInit();
+    }
+    
+    listando(): void {
+      this.msgs = [];
+      this.msgs.push({severity: 'success', summary: 'Success', detail: 'Conexão Bem Sucedida'});
+  }
+    erroListar(): void {
+      this.msgs = [];
+      this.msgs.push({severity: 'error', detail: 'Erro ao Listar' +
+       'Veja a conexão com servidor'});
     }
 }

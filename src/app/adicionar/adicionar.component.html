@@ -1,24 +1,25 @@
-<p>
-   Adicionar curso.
-</p>
-<p-panel class="ui-g-12 ui-md-8">
-  
+<p-growl [(value)]="msgs"></p-growl>
+<p-panel class="ui-g-12 ui-md-12">
+      <p-header>
+            Adicionar Curso
+      </p-header>
+    
       <br>
       <span class="ui-float-label">
-          <input id="float-input" type="text" size="30" name="nome" pInputText #nome> 
+          <input id="float-input" type="text" name="nome" pInputText pTooltip="*Campo obrigatório" #nome> 
           <label for="float-input">Curso</label>
       </span>
   
       <br>
       <span class="ui-float-label">
-          <input id="float-input" type="text" size="30" name="duracao"  pInputText #duracao> 
+          <input id="float-input" type="number" name="duracao" [min]="0" [max]="500"  pInputText pTooltip="*Campo obrigatório" #duracao> 
           <label for="float-input">Duração</label>
       </span>
       <br>
       
       <p-footer>
-          <button pButton type="button" (click)="onclick(nome.value , duracao.value)" label="Salvar"></button>
+          <button pButton type="button" (click)="onclick(nome.value,duracao.value)" label="Salvar"></button>
       </p-footer>
   
-  </p-panel>
-  
+</p-panel>
+        

@@ -1,3 +1,4 @@
+import { Message } from 'primeng/components/common/api';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
@@ -7,8 +8,12 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./adicionar.component.css']
 })
 export class AdicionarComponent implements OnInit {
+
   @Output() emitirCursoLista = new EventEmitter();
   
+  msgs: Message[] = [];
+  nome:string;
+   duracao:string;
    constructor(private http: HttpClient) { }
  
  
@@ -34,12 +39,22 @@ export class AdicionarComponent implements OnInit {
              }
            );
  
-           alert("Adicionado com sucesso");
+           this.adicionado();
          } else{
            console.log("erro");
-           alert("Erro!!!  Não é permitido deixar campos em branco!");
-         } 
+           this.erroAdicionar();
+          } 
  
        }
+
+       adicionado(): void {
+        this.msgs = [];
+        this.msgs.push({severity: 'success', summary: 'Success', detail: 'Curso adicionado'});
+    }
+      erroAdicionar(): void {
+        this.msgs = [];
+        this.msgs.push({severity: 'error', detail: 'Curso não foi adicionado.' +
+         'Talvez os campo(s) estejam vazio(s)'});
+      }
 
 }

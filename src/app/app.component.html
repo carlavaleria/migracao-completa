@@ -1,65 +1,43 @@
+<p-growl [(value)]="msgs"></p-growl>
 <div class="container-fluid">
     <div class="row">
 
      <!-- top -->
       <div class="ui-g-12 topbar" >
-        <div class="ui-g-2 ui-md-2">
+        <div class="ui-g-2 ui-md-4">
           <!-- top left -->
         </div>
-        <div class="ui-g-10 ui-md-10">
+        <div class="ui-g-10 ui-md-8">
          <!-- top rigth -->        
         </div>
       </div>
     <!-- fim do top -->
 
        <!-- div lateral -->
-      <div class="col-sm-3 col-md-2 sidebar">
-        <br>  
-        <ul class="nav nav-sidebar ui-g-12 main">
-          <li class="ui-g-12 texto" routerLinkActive="active">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-            <a routerLink="/adicionar"> Adicionar </a>
-          </li>
-          <li class="ui-g-12 texto"  routerLinkActive="active">
-            <i class="fa fa-table" aria-hidden="true"></i>
-            <a routerLink="/listar"> Listar </a>
-          </li>
-          <li class="ui-g-12 texto" >
-            <i class="fa fa-table" aria-hidden="true"></i>
-            <a > Listar 2 </a></li>
-        </ul> 
+      <div class="col-sm-12 col-md-4">
+        <br>
+        <app-adicionar (emitirCursoLista)="metodoAddListar($event)"></app-adicionar>
       </div>
        <!-- fim da div lateral-->
       
        <!-- div operacoes -->
-      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
-        <br>  
+      <div class="col-sm-12 col-md-8 bc">
+        <br> 
         <!-- div operacoes conteudo -->
-        <div class="ui-g-12 ui-md-12">
-          
-          
-         
-          
-          <router-outlet></router-outlet>
-              
-
-          </div>
+        <div class="ui-g-12 ui-md-12 sidebar">
+            
+               <p-tabView>
+                  <!--<app-pesquisar (emitirCursoLista)="metodoAddListar($event)"></app-pesquisar>-->
+                  <p-tabPanel header="Apenas Listar" leftIcon="fa-search"> 
+                  
+                  <app-listar [metodoListar]="metodoListar" ></app-listar>
+                  </p-tabPanel>
+               </p-tabView>
+               
+        </div>
 
       </div>
       <!-- fim da div operacoes-->
       
     </div>
   </div>
-
-
-
-        
-   
-  <!--<ul class="nav navbar-nav">
-      <li routerLinkActive="active">
-        <a routerLink="/templateForm">Form - Template Driven</a>
-      </li>
-      <li routerLinkActive="active">
-        <a routerLink="/dataForm">Form - Data Driven</a>
-      </li>
-  </ul>-->

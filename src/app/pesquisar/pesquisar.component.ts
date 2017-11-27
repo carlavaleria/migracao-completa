@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-pesquisar',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PesquisarComponent implements OnInit {
 
-  constructor() { }
+  @Input('metodoListarCurso') metodoListarCurso: any = {};
+  @Output() emitirCursoLista = new EventEmitter();
+  constructor(private http : HttpClient) { }
 
   ngOnInit() {
   }
+  
+  pesquisar(s:string ): void{
+    this.http.get('http://localhost:8080/?nome=' + s)
+    .subscribe(data => {
+      this.metodoListarCurso = data;
+      console.log(data);
+    });
+  }
+
 
 }

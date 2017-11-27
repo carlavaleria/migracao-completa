@@ -1,8 +1,7 @@
+import { PesquisarComponent } from './pesquisar/pesquisar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ButtonModule} from 'primeng/primeng';
@@ -14,16 +13,20 @@ import {TabViewModule} from 'primeng/primeng';
 import {InputTextModule} from 'primeng/primeng';
 import {SplitButtonModule} from 'primeng/primeng';
 import {DataTableModule,SharedModule} from 'primeng/primeng';
+import {GrowlModule} from 'primeng/primeng';
+import {PaginatorModule} from 'primeng/primeng'; 
+import {DataGridModule} from 'primeng/primeng';
+import {TooltipModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdicionarComponent,
-    ListarComponent
+    ListarComponent,
+    PesquisarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     ButtonModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -34,6 +37,11 @@ import {DataTableModule,SharedModule} from 'primeng/primeng';
     SplitButtonModule,
     DataTableModule,
     SharedModule,
+    GrowlModule,
+    PaginatorModule,
+    DataGridModule,
+    FormsModule,
+    TooltipModule
   ],
   exports:[],
   providers: [],

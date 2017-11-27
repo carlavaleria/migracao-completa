@@ -1,11 +1,14 @@
 .topbar{
     width: 100%;
+    /*background-color: silver;*/
     background-color: #df6659;
 }
-
+.bc{
+    background-color: white;
+}
 .sidebar{
     /*background-color: rgb(43, 211, 203);*/
-    background-color: rgb(238, 232, 231);
+    background-color: #eff1f3;
 }
 
 .main{
