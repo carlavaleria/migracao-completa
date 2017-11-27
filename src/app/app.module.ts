@@ -1,3 +1,4 @@
+import { ApenasListarComponent } from './apenas-listar/apenas-listar.component';
 import { PesquisarComponent } from './pesquisar/pesquisar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -25,7 +26,8 @@ import {RatingModule} from 'primeng/primeng';
     AppComponent,
     AdicionarComponent,
     ListarComponent,
-    PesquisarComponent
+    PesquisarComponent,
+    ApenasListarComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ export class AppComponent {
   msgs: Message[] = [];
   val2: number;
   msg;
+  
     constructor(private http : HttpClient){ }
   
     

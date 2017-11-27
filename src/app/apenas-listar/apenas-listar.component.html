@@ -1,0 +1,27 @@
+<p-panel>
+  <p-header>
+
+  </p-header>
+  <div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-6">
+        <div class="ui-inputgroup">
+            <button class="cor" pButton (click)="pesquisar(s.value)" type="button" label="Pesquisar"></button>
+            <input type="text" pInputText pTooltip="Listar por nome do curso" placeholder="Nome do Curso" #s>
+            <br>
+        </div>
+    </div>
+</div>
+        <div class="ui-g">
+            <div class="ui-g-12">
+              <p-dataTable [value]="metodoListar" [paginator]="true" [rows]="5">
+                  <p-column field="id" header="Id"></p-column>
+                  <p-column field="nome" header="Curso"></p-column>
+                  <p-column field="duracao" header="Duracao"></p-column>
+              </p-dataTable>
+            </div>
+        </div>
+        
+  <p-footer>
+    
+  </p-footer>
+</p-panel>

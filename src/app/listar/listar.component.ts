@@ -11,6 +11,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ListarComponent implements OnInit {
 
   @Input("metodoListar")  metodoListar : any = {};
+  @Output() emitirCursoLista = new EventEmitter();
   curso = {};
   msgs: Message[] = [];
   formulario: FormGroup;
@@ -31,6 +32,8 @@ export class ListarComponent implements OnInit {
     .subscribe(
       data => {
         this.metodoListar = (data);
+        const teste:string = "curso";
+        this.emitirCursoLista.emit(teste);
       }
     );
   }
@@ -71,6 +74,8 @@ export class ListarComponent implements OnInit {
          //this.cursos = data;
           console.log(data);
           this.metodoListar = data;
+          const teste:string = "curso";
+          this.emitirCursoLista.emit(teste);
         }
       );
 

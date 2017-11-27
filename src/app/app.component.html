@@ -34,10 +34,15 @@
             
                <p-tabView>
                   <!--<app-pesquisar (emitirCursoLista)="metodoAddListar($event)"></app-pesquisar>-->
-                  <p-tabPanel header="Listagem Completa" leftIcon="fa-search"> 
-                  
-                  <app-listar [metodoListar]="metodoListar" ></app-listar>
+                  <p-tabPanel header="Apenas Listar" leftIcon="fa-search">
+                    <app-apenas-listar [metodoListar]="metodoListar"></app-apenas-listar>
                   </p-tabPanel>
+
+                  <p-tabPanel header="Listagem Completa" leftIcon="fa-edit"> 
+                  
+                  <app-listar [metodoListar]="metodoListar" (emitirCursoLista)="metodoAddListar($event)" ></app-listar>
+                  </p-tabPanel>
+                  
                </p-tabView>
                
         </div>
