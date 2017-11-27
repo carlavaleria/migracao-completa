@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Message } from 'primeng/components/common/api';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
@@ -10,12 +11,17 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ListarComponent implements OnInit {
 
   @Input("metodoListar")  metodoListar : any = {};
-  
+  curso = {};
   msgs: Message[] = [];
-  
-  constructor(private http: HttpClient) { }
+  formulario: FormGroup;
+  constructor(private http: HttpClient, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.formulario = this.formBuilder.group({
+      nome: [''],
+      duracao: ['']
+    });
+    console.log(this.formulario.value)
   }
 
   deleteCurso(id): void {
@@ -37,15 +43,29 @@ export class ListarComponent implements OnInit {
     });
   }
 
-  alterarCursos(id, nome , duracao){
-    const curso = {
-      id:id,
-      nome:nome,
-      duracao:duracao
-    };
-
-    console.log(id,nome,duracao)
-    this.http.put('http://localhost:8080/', curso)
+  alterarCursos(id, nome, duracao){
+    console.log(this.formulario.value.nome, this.formulario.value.duracao);
+    if(this.formulario.value.nome == ''){
+      this.curso = {
+        id: id,
+        nome: nome,
+        duracao: this.formulario.value.duracao
+      }
+    }else if(this.formulario.value.duracao == ''){
+      this.curso = {
+        id: id,
+        nome: this.formulario.value.nome,
+        duracao: duracao
+      }
+    }else{
+      this.curso = {
+        id: id,
+        nome: this.formulario.value.nome,
+        duracao: this.formulario.value.duracao
+      }
+    }
+    
+    this.http.put('http://localhost:8080/', this.curso)
     .subscribe(
         data => {
          //this.cursos = data;

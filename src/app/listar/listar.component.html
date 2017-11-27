@@ -1,56 +1,57 @@
-
 <p-panel>
-        <p-header>
-    
-        </p-header>
+    <p-header>
 
-        <div class="ui-g ui-fluid">
-            <div class="ui-g-12 ui-md-6">
-                <div class="ui-inputgroup" >
-                    <button pButton (click)="pesquisar(s.value)" type="button" label="Pesquisar"></button>
-                    <input type="text" pInputText placeholder="Nome do Curso" #s> 
-                    <br>      
-                </div>
+    </p-header>
+
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-6">
+            <div class="ui-inputgroup">
+                <button class="cor" pButton (click)="pesquisar(s.value)" type="button" label="Pesquisar"></button>
+                <input type="text" pInputText pTooltip="Listar por nome do curso" placeholder="Nome do Curso" #s>
+                <br>
             </div>
         </div>
-        
-              <div class="ui-g">
-                  <div class="ui-g-12">
-                    <p-dataTable [value]="metodoListar" [paginator]="true" [rows]="5">
-                        <p-column field="id" header="Id">
-                                <ng-template let-curso="rowData" pTemplate="body">
-                                        <input class="ui-g-12 ui-md-8" type="text" value="{{ curso.id }}" disabled #id>
-                                      </ng-template>
-                        </p-column>
+    </div>
+    <form [formGroup]="formulario">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <p-dataTable [value]="metodoListar" [paginator]="true" [rows]="5">
+                    <p-column field="id" header="Id">
+                        <ng-template let-curso="rowData" pTemplate="body">
+                            <input class="ui-g-12 ui-md-8" type="text" value="{{ curso.id }}" disabled>
+                        </ng-template>
+                    </p-column>
 
-                        <p-column field="nome" header="Curso" class="ui-g-12 ui-md-12">
-                                <ng-template let-curso="rowData" pTemplate="body">
-                                        <input type="text" class="ui-g-12 ui-md-12" value="{{ curso.nome }}" #nome>
-                                    </ng-template>
-                        </p-column>
+                    <p-column field="nome" header="Curso" class="ui-g-12 ui-md-12">
+                        <ng-template let-curso="rowData" pTemplate="body">
+                            <input type="text" class="ui-g-12 ui-md-12" value="{{ curso.nome }}" formControlName="nome">
+                        </ng-template>
+                    </p-column>
 
-                        <p-column field="duracao" header="Duracao" class="ui-g-12 ui-md-12">
-                                <ng-template let-curso="rowData" pTemplate="body">
-                                        <input type="text" class="ui-g-12 ui-md-12" value="{{ curso.duracao }}" #duracao>
-                                    </ng-template>
-                        </p-column>
+                    <p-column field="duracao" header="Duracao" class="ui-g-12 ui-md-12">
+                        <ng-template let-curso="rowData" pTemplate="body">
+                            <input type="text" class="ui-g-12 ui-md-12" value="{{ curso.duracao }}" formControlName="duracao">
+                        </ng-template>
+                    </p-column>
 
-                        <p-column header="Alterar">
-                                <ng-template let-curso="rowData" pTemplate="body">
-                                  <button pButton icon="fa-pencil" (click)="alterarCursos(curso.id, curso.nome, curso.duracao)"></button>
-                                </ng-template>
-                              </p-column>
-                              <p-column header="Excluir">
-                                <ng-template let-curso="rowData" pTemplate="body">
-                                 <button pButton icon="fa-trash" (click)="deleteCurso( curso.id )"></button>
-                                </ng-template>
-                              </p-column>
-                    </p-dataTable>
-                  </div>
-              </div>
+                    <p-column header="Alterar">
+                        <ng-template let-curso="rowData" pTemplate="body">
+                            <button class="cor" pButton icon="fa-pencil" (click)="alterarCursos(curso.id, curso.nome, curso.duracao)"></button>
+                        </ng-template>
+                    </p-column>
+                    <p-column header="Excluir">
+                        <ng-template let-curso="rowData" pTemplate="body">
+                            <button class="cor" pButton icon="fa-trash" (click)="deleteCurso( curso.id )"></button>
+                        </ng-template>
+                    </p-column>
+                </p-dataTable>
+            </div>
+        </div>
+    </form>
 
-              
-        <p-footer>
-          
-        </p-footer>
-    </p-panel>
+
+
+    <p-footer>
+
+    </p-footer>
+</p-panel>

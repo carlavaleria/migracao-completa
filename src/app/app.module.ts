@@ -17,6 +17,7 @@ import {GrowlModule} from 'primeng/primeng';
 import {PaginatorModule} from 'primeng/primeng'; 
 import {DataGridModule} from 'primeng/primeng';
 import {TooltipModule} from 'primeng/primeng';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {TooltipModule} from 'primeng/primeng';
     PaginatorModule,
     DataGridModule,
     FormsModule,
+    ReactiveFormsModule,
     TooltipModule
   ],
   exports:[],

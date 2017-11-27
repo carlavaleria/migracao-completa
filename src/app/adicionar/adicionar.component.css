@@ -2,3 +2,12 @@ p{
     margin-left: 10px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+input{
+width: 80%;
+}
+
+.cor{
+    background-color: #df6659;
+    border-color: #df6659;
+}

@@ -1,0 +1,14 @@
+input{
+    width: 80%;
+    text-align: center;
+    height: 20%;
+    }
+
+    .cor{
+        background-color: #df6659;
+        border-color: #df6659;
+    }
+
+    .ali{
+        text-align: center
+    }
