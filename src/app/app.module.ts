@@ -18,6 +18,7 @@ import {PaginatorModule} from 'primeng/primeng';
 import {DataGridModule} from 'primeng/primeng';
 import {TooltipModule} from 'primeng/primeng';
 import { ReactiveFormsModule } from '@angular/forms';
+import {RatingModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DataGridModule,
     FormsModule,
     ReactiveFormsModule,
-    TooltipModule
+    TooltipModule,
+    RatingModule
   ],
   exports:[],
   providers: [],

@@ -10,6 +10,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class AppComponent {
   metodoListar: any = [];
   msgs: Message[] = [];
+  val2: number;
+  msg;
     constructor(private http : HttpClient){ }
   
     
@@ -46,4 +48,12 @@ export class AppComponent {
       this.msgs.push({severity: 'error', detail: 'Erro ao Listar' +
        'Veja a conexão com servidor'});
     }
+
+    handleRate(event) {
+      this.msg = "Obrigada! " + event.value +" estrela";
+  }
+
+  handleCancel(event) {
+      this.msg = "Avaliação Cancelada";
+  }
 }

@@ -6,6 +6,7 @@
       <div class="ui-g-12 topbar" >
         <div class="ui-g-2 ui-md-4">
           <!-- top left -->
+          <i class="fa fa-bars" aria-hidden="true"></i>
         </div>
         <div class="ui-g-10 ui-md-8">
          <!-- top rigth -->        
@@ -14,9 +15,14 @@
     <!-- fim do top -->
 
        <!-- div lateral -->
-      <div class="col-sm-12 col-md-4">
+      <div id="tamanho" class="col-sm-12 col-md-4 sidebar">
         <br>
         <app-adicionar (emitirCursoLista)="metodoAddListar($event)"></app-adicionar>
+        <br>
+        <div id="center">
+          <h4 class="first">Avalie</h4> 
+          <p-rating [(ngModel)]="val2" (onRate)="handleRate($event)" (onCancel)="handleCancel($event)"></p-rating> <span *ngIf="msg" style="margin-left:10px">{{msg}}</span>
+        </div>
       </div>
        <!-- fim da div lateral-->
       
@@ -24,7 +30,7 @@
       <div class="col-sm-12 col-md-8 bc">
         <br> 
         <!-- div operacoes conteudo -->
-        <div class="ui-g-12 ui-md-12 sidebar">
+        <div id="tamanho2" class="ui-g-12 ui-md-12 sidebar">
             
                <p-tabView>
                   <!--<app-pesquisar (emitirCursoLista)="metodoAddListar($event)"></app-pesquisar>-->
